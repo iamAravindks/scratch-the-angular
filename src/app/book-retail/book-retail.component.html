@@ -1,0 +1,16 @@
+<div class="index__bar"><input type="number" placeholder="Only number..." onlyNumber class="search__bar"></div>
+
+
+<ul class="list" *ngFor="let book of bookDetailsList" >
+    <li class="item" (click)="showSummary(book.id)">
+        <div class="book__img"><img src={{book.coverImage}} alt={{book.name}}></div>
+        <div class="book__detail">
+            <h2>{{book.name}}</h2>
+            <p>by {{book.author}}</p>
+            <h4>{{book.price}}</h4>
+            <p *ngIf="selectedBook.id === book.id && selectedBook.summary.length">
+                {{selectedBook.summary}}
+            </p>
+        </div>
+    </li>
+</ul>
