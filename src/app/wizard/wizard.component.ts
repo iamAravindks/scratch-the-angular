@@ -29,10 +29,17 @@ export class WizardComponent implements OnInit{
     const currentIndex = this.menu.findIndex(t => t.id === tabId);
      
     // Check if the tab is the next one or a previously visited one
-    if (tabId === this.currentTabId + 1 || this.menu[currentIndex].visited===true ) {
+    if ( this.menu[currentIndex].visited===true ) {
       console.log(tabId === this.currentTabId + 1);
        this.currentTabId = tabId;
-       this.wizardHelper.setTabState(tabId,{visited:true,disabled:false})
+    }
+   }
+
+
+   public next(tabId:number){
+    if(tabId === this.currentTabId+1){
+      this.wizardHelper.setTabState(tabId,{visited:true,disabled:false})
+      this.setCurrentTab(tabId)
     }
    }
 

@@ -24,7 +24,7 @@
             <p>this is step one</p>
         </div>
         <div class="btn-container" btn-container>
-            <button class="button" (click)="setCurrentTab(2)">Save and Continue</button>
+            <button class="button" (click)="next(2)">Save and Continue</button>
         </div>
     </app-tab>
 </ng-container>
@@ -37,7 +37,7 @@
         <div class="btn-container" btn-container>
             <button class="normal-button" (click)="setCurrentTab(1)">previous</button>
 
-            <button class="button" (click)="setCurrentTab(3)">Save and Continue</button>
+            <button class="button" (click)="next(3)">Save and Continue</button>
         </div>
     </app-tab>
 </ng-container>
@@ -50,8 +50,8 @@
         </div>
         <div class="btn-container" btn-container>
             <button class="normal-button" (click)="setCurrentTab(2)">previous</button>
-            <button class="normal-button" (click)="setCurrentTab(4)">skip</button>
-            <button class="button" (click)="setCurrentTab(4)">Save and Continue</button>
+            <button class="normal-button" (click)="next(4)">skip</button>
+            <button class="button" (click)="next(4)">Save and Continue</button>
         </div>
     </app-tab>
 </ng-container>
