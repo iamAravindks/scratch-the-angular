@@ -1,0 +1,66 @@
+<div class="wizard">
+    <!-- wizard.component.html -->
+<ul class="wizard-index">
+    <li class="visited" (click)="setCurrentTab(1)" [class.current]="currentTabId === 1">
+        <i class="glyphicon glyphicon-folder-open"></i>
+    </li>
+    <li (click)="setCurrentTab(2)" [class.current]="currentTabId === 2" [class.visited]="isVisited(2)" [class.disabled]="isDisabled(2)">
+        <i class="glyphicon glyphicon-pencil"></i>
+    </li>
+    <li (click)="setCurrentTab(3)" [class.current]="currentTabId === 3" [class.visited]="isVisited(3)" [class.disabled]="isDisabled(3)">
+        <i class="glyphicon glyphicon-picture"></i>
+    </li>
+    <li (click)="setCurrentTab(4)" [class.current]="currentTabId === 4" [class.visited]="isVisited(4)" [class.disabled]="isDisabled(4)">
+        <i class="glyphicon glyphicon-ok"></i>
+    </li>
+    
+   
+</ul>
+</div>
+<ng-container *ngIf="currentTabId===1">
+    <app-tab >
+        <div class="align-start" content>
+            <h1>Step 1</h1>
+            <p>this is step one</p>
+        </div>
+        <div class="btn-container" btn-container>
+            <button class="button" (click)="setCurrentTab(2)">Save and Continue</button>
+        </div>
+    </app-tab>
+</ng-container>
+<ng-container *ngIf="currentTabId===2">
+    <app-tab >
+        <div class="align-start" content>
+            <h1>Step 2</h1>
+            <p>this is step two</p>
+        </div>
+        <div class="btn-container" btn-container>
+            <button class="normal-button" (click)="setCurrentTab(1)">previous</button>
+
+            <button class="button" (click)="setCurrentTab(3)">Save and Continue</button>
+        </div>
+    </app-tab>
+</ng-container>
+
+<ng-container *ngIf="currentTabId===3">
+    <app-tab >
+        <div class="align-start" content>
+            <h1>Step 3</h1>
+            <p>this is step Three</p>
+        </div>
+        <div class="btn-container" btn-container>
+            <button class="normal-button" (click)="setCurrentTab(2)">previous</button>
+            <button class="normal-button" (click)="setCurrentTab(4)">skip</button>
+            <button class="button" (click)="setCurrentTab(4)">Save and Continue</button>
+        </div>
+    </app-tab>
+</ng-container>
+
+<ng-container *ngIf="currentTabId===4">
+    <app-tab >
+        <div class="align-start" content>
+            <h1>Complete</h1>
+            <p>You have successfully completed all steps.</p>
+        </div>
+    </app-tab>
+</ng-container>
