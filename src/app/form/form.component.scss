@@ -1,0 +1,162 @@
+    $radio-border-color: #8b8c89;
+    $radio-checked-color: #274c77;
+    $radio-hover-color: #a3cef1;
+    $radio-disabled-bg-color: #d9d9d9;
+    $background-color:#f2ecff;
+    $main-blue:#4909b8;
+    $hover-blue:#32077bf7;
+   
+
+.form--container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+
+    form{
+        display: flex;
+        flex-direction: column;
+        min-height: 600px;
+        width: 50%;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 40px;
+    border-top: 20px solid $main-blue;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #fff;
+
+    }
+    .form--section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+    }
+}
+.form--group{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    border-radius: 15px;
+}
+
+.flex-col{
+    flex-direction: column;
+}
+.flex-row{
+    flex-direction: row;
+}
+
+label{
+    width: 15%;
+    margin: 0 3px;
+
+}
+label.required::after {
+    content: "*";
+    color: red;
+}
+
+input[type="text"],input[type="email"],input[type="number"]{
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.input--group{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:3px;
+    flex-wrap: wrap;
+}
+
+input[type="radio"] {
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    margin: 6px;
+    padding: 0;
+    border: 2px solid $radio-border-color;
+    border-radius: 50%;
+    outline: none;
+   }
+
+
+   @mixin button-styles($bg-color: #3498db, $text-color: #ffffff, $hover-color: #2980b9) {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid $bg-color;
+    border-radius: 5px;
+    color: $text-color;
+    background-color: $bg-color;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: $hover-color;
+    }
+  
+    &:focus {
+      outline: none;
+    }
+  }
+  
+  // Apply button styles
+  .button {
+    @include button-styles;
+    font-size: 10px;
+    padding: 7px 12px;
+  }
+
+  .responsive-button{
+    @include button-styles($bg-color:$main-blue,$hover-color:$hover-blue);
+    height: 100%;
+    padding: 0;
+
+  }
+
+  .no-border{
+border-radius: 0 !important;
+
+  }
+
+  .normal-button{
+    @include button-styles($bg-color:#d3cfcf, $text-color:#2e2e2e, $hover-color:#a8a8a6f6)
+  }
+   
+  input[type=submit] {
+    width: 100%;
+    background-color: $main-blue;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type=submit]:hover {
+    background-color: $hover-blue;
+  }
+
+
+  .alert{
+    color: red;
+    
+  }
