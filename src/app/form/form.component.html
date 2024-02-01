@@ -6,12 +6,13 @@
             <input type="text" name="firstname" id="firstname"formControlName="firstName" >
         </div>
         <div *ngIf="IsFormSubmitted() &&  profileForm.controls.firstName.invalid " class="alert">
-            <div *ngIf="profileForm.controls.firstName.errors?.['required']">first name is required.</div>
+            <div *ngIf="profileForm.controls.firstName.errors?.['required']">{{errorMessages().required("first name")}}</div>
             <div *ngIf="profileForm.controls.firstName.errors?.['minlength']">
-              First Name must be at least 3 characters long.
+                {{errorMessages().minlength("first name",3)}}
             </div>
             <div *ngIf="profileForm.controls.firstName.errors?.['maxlength']">
-                First Name must be at max 20 characters long.
+                {{errorMessages().maxlength("first name",20)}}
+
               </div>
         </div>
         <div class="form--group">
@@ -20,7 +21,8 @@
         </div>
         <div *ngIf="IsFormSubmitted() && profileForm.controls.middleName.dirty && profileForm.controls.middleName.errors?.['maxlength']" class="alert">
             <div>
-                Middle name must be at max 20 characters long.
+                {{errorMessages().maxlength("middle name",20)}}
+
             </div>
         </div>
         <div class="form--group">
@@ -28,12 +30,14 @@
             <input type="text" name="lastname" id="lastname"formControlName="lastName" >
         </div>
         <div *ngIf="IsFormSubmitted() &&  profileForm.controls.lastName.invalid " class="alert">
-            <div *ngIf="profileForm.controls.lastName.errors?.['required']">last name is required.</div>
+            <div *ngIf="profileForm.controls.lastName.errors?.['required']">{{errorMessages().required("last name")}}</div>
             <div *ngIf="profileForm.controls.lastName.errors?.['minlength']">
-              Last Name must be at least 3 characters long.
+                {{errorMessages().minlength("last name",3)}}
+
             </div>
             <div *ngIf="profileForm.controls.lastName.errors?.['maxlength']">
-                Last Name must be at max 20 characters long.
+                {{errorMessages().maxlength("last name",20)}}
+
               </div>
         </div>
         <div class="form--group">
@@ -42,13 +46,15 @@
         </div>
         <div *ngIf="IsFormSubmitted() && profileForm.controls.age.invalid" class="alert">
             <div *ngIf="profileForm.controls.age.errors?.['required']">
-                age is required
+                {{errorMessages().required("age")}}
             </div>
             <div *ngIf="profileForm.controls.age.errors?.['min']">
-                min. age should be 10
+                {{errorMessages().min("age",10)}}
+
             </div>
             <div *ngIf="profileForm.controls.age.errors?.['max']">
-                max. age should be 50
+                {{errorMessages().max("age",50)}}
+
             </div>
         </div>
         <div class="form--group">
@@ -71,10 +77,11 @@
             </div>
             <div *ngIf="IsFormSubmitted()  && profileForm.controls.address.controls.city.invalid" class="alert">
                 <div *ngIf="profileForm.controls.address.controls.city.errors?.['required']">
-                    city name is required
+                    {{errorMessages().required("city")}}
                 </div>
                 <div *ngIf="profileForm.controls.address.controls.city.errors?.['maxlength']">
-                    city name must be at max 20 characters long.
+                    {{errorMessages().maxlength("city",20)}}
+
                 </div>
             </div>
             <div class="form--group">
@@ -83,10 +90,11 @@
             </div>
             <div *ngIf="IsFormSubmitted()  && profileForm.controls.address.controls.street.invalid" class="alert">
                 <div *ngIf="profileForm.controls.address.controls.street.errors?.['required']">
-                    street name is required
+                    {{errorMessages().required("street")}}
                 </div>
                 <div *ngIf="profileForm.controls.address.controls.street.errors?.['maxlength']">
-                    street name must be at max 20 characters long.
+                    {{errorMessages().maxlength("street",20)}}
+
                 </div>
             </div>
             <div class="form--group">
@@ -95,7 +103,8 @@
             </div>
             <div *ngIf="IsFormSubmitted() && profileForm.controls.address.controls.landmark.dirty && profileForm.controls.address.controls.landmark.errors?.['maxlength']" class="alert">
                 <div>
-                    land mark must be at max 20 characters long.
+                {{errorMessages().maxlength("landmark",20)}}
+                    
                 </div>
             </div>
             <div class="form--group">
@@ -105,10 +114,11 @@
 
             <div *ngIf="IsFormSubmitted()  && profileForm.controls.address.controls.state.invalid" class="alert">
                 <div *ngIf="profileForm.controls.address.controls.state.errors?.['required']">
-                    state name is required
+                    {{errorMessages().required("state")}}
                 </div>
                 <div *ngIf="profileForm.controls.address.controls.state.errors?.['maxlength']">
-                    state name must be at max 20 characters long.
+                    {{errorMessages().maxlength("state",20)}}
+
                 </div>
             </div>
 
@@ -118,10 +128,11 @@
             </div>
             <div *ngIf="IsFormSubmitted()  && profileForm.controls.address.controls.zipCode.invalid" class="alert">
                 <div *ngIf="profileForm.controls.address.controls.zipCode.errors?.['required']">
-                    zip code is required
+                    {{errorMessages().required("zip code")}}
                 </div>
                 <div *ngIf="profileForm.controls.address.controls.zipCode.errors?.['maxlength']">
-                    zip code  must be at max 20 characters long.
+                {{errorMessages().maxlength("zip code",20)}}
+                    
                 </div>
             </div>
             <div class="form--group">
@@ -130,10 +141,11 @@
             </div>
             <div *ngIf="IsFormSubmitted()  && profileForm.controls.address.controls.country.invalid" class="alert">
                 <div *ngIf="profileForm.controls.address.controls.country.errors?.['required']">
-                    country name is required
+                    {{errorMessages().required("country")}}
                 </div>
                 <div *ngIf="profileForm.controls.address.controls.country.errors?.['maxlength']">
-                    country name must be at max 20 characters long.
+                    {{errorMessages().maxlength("country",20)}}
+
                 </div>
             </div>
         </div>

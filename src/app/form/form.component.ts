@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormService } from './form.service';
+import { IErrorMessages } from './form.model';
 
 @Component({
   selector: 'app-form',
@@ -13,9 +14,12 @@ import { FormService } from './form.service';
 })
 export class FormComponent {
 
+  
+
   constructor(private readonly formHelper:FormService){
 
   }
+
 
   private submitted:boolean = false;
 profileForm = new FormGroup({
@@ -35,6 +39,10 @@ profileForm = new FormGroup({
   hobbies: new FormArray([new FormControl('')])
 });
 
+
+ errorMessages():IErrorMessages{
+  return this.formHelper.ERROR_MESSAGES;
+}
 // getter for getting all the hobbies since it is dynamically renderd
 get hobbies(): FormArray {
   return this.profileForm.get('hobbies') as FormArray;
