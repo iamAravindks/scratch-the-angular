@@ -1,16 +1,16 @@
 <div class="wizard">
     <!-- wizard.component.html -->
 <ul class="wizard-index">
-    <li class="visited" (click)="setCurrentTab(1)" [class.current]="currentTabId === 1">
+    <li class="visited" (click)="setCurrentTab(1)" [class.current]="currentTabId === 1" data-tab="1">
         <i class="glyphicon glyphicon-folder-open"></i>
     </li>
-    <li (click)="setCurrentTab(2)" [class.current]="currentTabId === 2" [class.visited]="isVisited(2)" [class.disabled]="isDisabled(2)">
+    <li (click)="setCurrentTab(2)" [class.current]="currentTabId === 2" [class.visited]="isVisited(2)" [class.disabled]="isDisabled(2)" data-tab="2">
         <i class="glyphicon glyphicon-pencil"></i>
     </li>
-    <li (click)="setCurrentTab(3)" [class.current]="currentTabId === 3" [class.visited]="isVisited(3)" [class.disabled]="isDisabled(3)">
+    <li (click)="setCurrentTab(3)" [class.current]="currentTabId === 3" [class.visited]="isVisited(3)" [class.disabled]="isDisabled(3)" data-tab="3">
         <i class="glyphicon glyphicon-picture"></i>
     </li>
-    <li (click)="setCurrentTab(4)" [class.current]="currentTabId === 4" [class.visited]="isVisited(4)" [class.disabled]="isDisabled(4)">
+    <li (click)="setCurrentTab(4)" [class.current]="currentTabId === 4" [class.visited]="isVisited(4)" [class.disabled]="isDisabled(4)" data-tab="4">
         <i class="glyphicon glyphicon-ok"></i>
     </li>
     
@@ -24,7 +24,7 @@
             <p>this is step one</p>
         </div>
         <div class="btn-container" btn-container>
-            <button class="button" (click)="next(2)">Save and Continue</button>
+            <button class="button" id="tab-one-btn" (click)="next(2)">Save and Continue</button>
         </div>
     </app-tab>
 </ng-container>

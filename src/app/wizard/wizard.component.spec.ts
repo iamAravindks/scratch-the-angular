@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { WizardComponent } from './wizard.component';
 import { WizardStepperService } from './wizard-stepper.service';
 import { Tab } from './Tabs/tab.component';
+import { By } from '@angular/platform-browser';
 
 describe('WizardComponent', () => {
   let component: WizardComponent;
@@ -68,4 +69,44 @@ describe('WizardComponent', () => {
     expect(component.currentTabId).toEqual(3);
   });
 });
+
+
+describe("WizardComponent View",()=>{
+  let component :WizardComponent;
+  let fixture:ComponentFixture<WizardComponent>;
+
+  beforeEach(async()=>{
+    await TestBed.configureTestingModule({
+      declarations:[WizardComponent,Tab],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(WizardComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges()
+  })
+
+    it("should have dispaly the correct tab (1) initially",()=>{
+      const listItems = fixture.debugElement.queryAll(By.css('.wizard-index li'));
+      const firstListItem = listItems.find(li => li.nativeElement.getAttribute('data-tab')==="1")
+      expect(firstListItem).toBeTruthy();
+      expect(firstListItem?.classes['visited']).toBeTrue();
+    })
+
+    it('should not switch to the second tab when clicked on the li tag instead of next button', () => {
+      const secondTabLink = fixture.debugElement.query(By.css('.wizard-index li:nth-child(2)'));
+      secondTabLink.triggerEventHandler('click', null);
+      fixture.detectChanges();
+      expect(component.currentTabId).not.toEqual(2);
+   });
+
+   it('should  switch to the second tab when clicked on the tab one button ', () => {
+    const secondTabBtn = fixture.debugElement.query(By.css('#tab-one-btn'));
+    console.log("btn",secondTabBtn);
+    secondTabBtn.triggerEventHandler('click', null);
+    fixture.detectChanges();
+    expect(component.currentTabId).toEqual(2);
+ });
+  
+
+})
 
