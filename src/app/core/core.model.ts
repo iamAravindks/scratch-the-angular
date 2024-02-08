@@ -1,0 +1,1 @@
+export type snackbarType = "sucess" | "danger"|"warn"|"info"
